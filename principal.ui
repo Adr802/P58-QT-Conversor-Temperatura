@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Principal</class>
+ <widget class="QMainWindow" name="Principal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>687</width>
+    <height>431</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Conversor de temperaturas</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/recursos/icon.png</normaloff>:/recursos/icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="font">
+       <font>
+        <family>Formula1 Display Bold</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">gridline-color: rgb(190, 216, 255);</string>
+      </property>
+      <property name="title">
+       <string>Centigrados</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLCDNumber" name="outCen">
+         <property name="tabletTracking">
+          <bool>false</bool>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(25, 68, 125);
+color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDial" name="cmdCen">
+         <property name="minimum">
+          <number>-273</number>
+         </property>
+         <property name="notchesVisible">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="font">
+       <font>
+        <family>Formula1 Display Bold</family>
+        <pointsize>14</pointsize>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="title">
+       <string>Fahrenheit</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLCDNumber" name="outFha">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(25, 68, 125);
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="value" stdset="0">
+          <double>32.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDial" name="cmdFha">
+         <property name="minimum">
+          <number>-459</number>
+         </property>
+         <property name="maximum">
+          <number>210</number>
+         </property>
+         <property name="sliderPosition">
+          <number>32</number>
+         </property>
+         <property name="notchTarget">
+          <double>3.699999999999999</double>
+         </property>
+         <property name="notchesVisible">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="font">
+       <font>
+        <family>Formula1 Display Bold</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferDefault</stylestrategy>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="title">
+       <string>Kelvin</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLCDNumber" name="outKel">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(25, 68, 125);
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="value" stdset="0">
+          <double>273.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDial" name="cmdKel">
+         <property name="maximum">
+          <number>372</number>
+         </property>
+         <property name="value">
+          <number>273</number>
+         </property>
+         <property name="sliderPosition">
+          <number>273</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="wrapping">
+          <bool>false</bool>
+         </property>
+         <property name="notchesVisible">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>687</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>cmdCen</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>outCen</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>422</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cmdFha</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>outFha</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>291</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>422</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cmdKel</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>outKel</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>452</x>
+     <y>387</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
